@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Home | Page {% endblock %}
+
+{% block content %}
+
+    <div class="container p-3" style="background-color: rgb(214, 222, 222);">
+        <h3 class="text-center">Homepage</h3>
+
+        <div class="container p-3 text-center">
+            <a href="{% url 'signup' %}" class="btn btn-success">Sign up</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-success">Login Page</a>
+        </div>
+
+        <div class="container p-3 m-3">
+            <form action="" method="POST" class="p-3 mt-2 shadow rounded" style="width:40%; margin: auto; background-color: rgb(237, 232, 226);">
+                {% csrf_token %}
+
+                {{ form|crispy }}
+                <input type="submit" name="submit" value="Add" class="btn btn-outline-success mt-3">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

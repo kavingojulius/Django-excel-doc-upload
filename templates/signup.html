@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Sign | Page {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center pt-3">Hello there</h3>
+        <form action="{% url 'signup' %}" method="POST" class="rounded-3 shadow p-4" style="width:40%; margin: auto;">
+            {% csrf_token %}
+
+            <label for="">Username</label>
+            <input type="text" class="form-control mt-2 mb-3" name="username" id="username">
+
+            <label for="">Email</label>
+            <input type="email" class="form-control mt-2 mb-3" name="email" id="email">
+
+            <label for="">Password</label>
+            <input type="password" class="form-control mt-2 mb-3" name="password1" id="password1">
+
+            <label for="">Confirm Password</label>
+            <input type="password" class="form-control mt-2 mb-3" name="password2" id="password2">
+
+            <input type="submit" value="Submit" class="btn btn-success mt-2 mb-3">
+        </form>
+    </div>
+    
+{% endblock %}
